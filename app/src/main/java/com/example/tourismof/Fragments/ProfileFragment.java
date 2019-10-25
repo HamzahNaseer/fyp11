@@ -132,8 +132,8 @@ public class ProfileFragment extends Fragment {
                     String phone = dataSnapshot.child("ph_no").getValue().toString();
                     ph_no.setText(phone);
                 }
-                if(dataSnapshot.hasChild("bio")){
-                    String Bio = dataSnapshot.child("bio").getValue().toString();
+                if(dataSnapshot.hasChild("Bio")){
+                    String Bio = dataSnapshot.child("Bio").getValue().toString();
                     bio.setText(Bio);
                 }
 
