@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "327037863582",
+    "firebase_url": "https://tourismof-e0e0c.firebaseio.com",
+    "project_id": "tourismof-e0e0c",
+    "storage_bucket": "tourismof-e0e0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327037863582:android:28ad13e38fb3203dd45d8f",
+        "android_client_info": {
+          "package_name": "com.example.tourismof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327037863582-c4e8ct8oa5o5in3af6m1prhvt7vrm7tj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tourismof",
+            "certificate_hash": "ab97750a7d1ce73ab484b78390dc49a5f595dae1"
+          }
+        },
+        {
+          "client_id": "327037863582-n9ebdbdad7fmb341kfh9mgvnh7e86fv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbDsE1056ivvDiE3Nur0BEo171b6yfJ5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327037863582-n9ebdbdad7fmb341kfh9mgvnh7e86fv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,48 @@
+<resources>
+    <array name="country">
+        <item>Pakistan</item>
+        <item>England</item>
+        <item>Australia</item>
+        <item>America</item>
+        <item>France</item>
+        <item>Malaysia</item>
+        <item>Dubai</item>
+        <item>India</item>
+        <item>canada</item>
+
+    </array>
+    <array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+    </array>
+    <array name="city">
+        <item>Country</item>
+        <item>Pakistan</item>
+        <item>England</item>
+    </array>
+    <array name="discount">
+        <item>Yes</item>
+        <item>No</item>
+    </array>
+    <string name="app_name">TourismoF</string>
+    <string name="Home">Home</string>
+    <string name="Profile">Profile</string>
+    <string name="Settings">Settings</string>
+    <string name="Logout">Logout</string>
+    <string name="drawyer_open">Drawer Open</string>
+    <string name="drawyer_close">Drawer Close</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="CreatnewAccount">Create New Account</string>
+    <string name="Country">Country</string>
+    <string name="FullName">Full Name</string>
+
+    <string name="Name">Name</string>
+
+    <string name="AddPost">Add Post</string>
+    <string name="Favorites">Favourites</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

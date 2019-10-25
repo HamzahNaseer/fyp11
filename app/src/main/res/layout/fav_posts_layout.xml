@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="15dp"
+    app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="#fff"
+    android:elevation="30dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/Card_view">
+
+    <LinearLayout
+        android:id="@+id/Card_view_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/post_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop">
+
+            </ImageView>
+
+            <ImageButton
+                android:id="@+id/image_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/liked_post_icon"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/unlike_post"
+                android:elevation="5dp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/post_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginTop="12dp"
+            android:text="Post Description"
+            android:textColor="#000000"
+            >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--            For Price -->
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginTop="12dp"
+                android:text="Price:"
+                android:textColor="#000000"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/post_price"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginTop="12dp"
+                android:text="Price"
+                android:textColor="#000000">
+            </TextView>
+
+            <!--            For Location-->
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:text="Location:"
+                android:textColor="#000000"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/post_location"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginTop="12dp"
+                android:text="Location"
+                android:textColor="#000000">
+            </TextView>
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

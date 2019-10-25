@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.HomeFragment"
+    android:background="#fff">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorNav"
+        android:id="@+id/searchView1">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:text="Tourismo"
+    android:textColor="#fff"
+    android:textSize="25sp"
+    android:padding="12sp"
+    android:layout_marginLeft="42sp"/>
+<androidx.appcompat.widget.SearchView
+    android:autofillHints="Sea"
+    android:id="@+id/searchView"
+    android:background="@drawable/search_bar"
+   android:layout_marginLeft="12sp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="40dp"
+  android:layout_alignParentRight="true"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp" />
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/searchView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
+</FrameLayout>
