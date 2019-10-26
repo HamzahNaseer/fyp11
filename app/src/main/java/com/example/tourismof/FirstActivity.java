@@ -47,6 +47,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction fth = fmhh.beginTransaction();
                         Fragment fragmenth = new Fragment_post();
                         fth.replace(R.id.frame, fragmenth);
+                        fth.addToBackStack(null);
                         fth.commit();
                         return true;
 
@@ -56,6 +57,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction ftp = fmp.beginTransaction();
                         Fragment fragmentpost = new Fragment_mypost();
                         ftp.replace(R.id.frame, fragmentpost);
+                        ftp.addToBackStack(null);
                         ftp.commit();
                         return true;
 
@@ -64,6 +66,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentManager fmm = getSupportFragmentManager();
                         FragmentTransaction ftm = fmm.beginTransaction();
                         Fragment fragmentchats = new ChatFragment();
+                        ftm.addToBackStack(null);
                         ftm.replace(R.id.frame, fragmentchats);
 
                         ftm.commit();
@@ -75,7 +78,8 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction ftn = fmn.beginTransaction();
                         Fragment fragmentprofile = new ProfileFragment();
                         ftn.replace(R.id.frame, fragmentprofile);
-                        ftn.commit();
+                            ftn.addToBackStack(null);
+                            ftn.commit();
                         return true;
                     case R.id.nav_settings:
 //                    mTextMessage.setText(R.string.title_profile);
@@ -83,6 +87,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction fts = fms.beginTransaction();
                         Fragment fragmentsetting = new Fragment_setting();
                         fts.replace(R.id.frame, fragmentsetting);
+                        fts.addToBackStack(null);
                         fts.commit();
                         return true;
 
@@ -101,6 +106,8 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction fth = fmh.beginTransaction();
                         Fragment fragmenth = new HomeFragment();
                         fth.replace(R.id.frame, fragmenth);
+                        fth.addToBackStack(null);
+
                         fth.commit();
                         return true;
 
@@ -110,6 +117,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction ftp = fmp.beginTransaction();
                         Fragment fragmentpost = new FavoriteFragment();
                         ftp.replace(R.id.frame, fragmentpost);
+                        ftp.addToBackStack(null);
 
                         ftp.commit();
                         return true;
@@ -121,6 +129,7 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction ftm = fmm.beginTransaction();
                         Fragment fragmentchats = new ChatFragment();
                         ftm.replace(R.id.frame, fragmentchats);
+                        ftm.addToBackStack(null);
 
                         ftm.commit();
                         return true;
@@ -130,6 +139,8 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction ftn = fmn.beginTransaction();
                         Fragment fragmentprofile = new ProfileFragment();
                         ftn.replace(R.id.frame, fragmentprofile);
+                        ftn.addToBackStack(null);
+
                         ftn.commit();
                         return true;
                     case R.id.setting_button:
@@ -138,6 +149,8 @@ public class FirstActivity extends AppCompatActivity {
                         FragmentTransaction fts = fms.beginTransaction();
                         Fragment fragmentset = new Fragment_setting();
                         fts.replace(R.id.frame, fragmentset);
+                        fts.addToBackStack(null);
+
                         fts.commit();
                         return true;
 
