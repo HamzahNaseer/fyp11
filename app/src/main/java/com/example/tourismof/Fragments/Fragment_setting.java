@@ -16,8 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.tourismof.Change_email;
+import com.example.tourismof.Change_password;
 import com.example.tourismof.LoginActivity;
 import com.example.tourismof.R;
+import com.example.tourismof.change_Phone_no;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +33,7 @@ import com.squareup.picasso.Picasso;
 
 
 public class Fragment_setting extends Fragment {
-TextView Signout;
+TextView Signout,email,password,phone_number;
     private CircleImageView profile_image;
     private DatabaseReference mRef;
     private FirebaseAuth mAuth;
@@ -42,11 +45,38 @@ TextView Signout;
         View view= inflater.inflate(R.layout.fragment_fragment_setting, container, false);
     profile_image=view.findViewById(R.id.profile);
          Signout=view.findViewById(R.id.signout);
+         email=view.findViewById(R.id.email);
+        phone_number=view.findViewById(R.id.change_phone);
+        password=view.findViewById(R.id.password);
          mAuth = FirebaseAuth.getInstance();
          String currentUser = mAuth.getCurrentUser().getUid();
          mRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
+      email.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent=new Intent(getContext(), Change_email.class);
+              startActivity(intent);
+
+          }
+      });
+
+
+      password.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent=new Intent(getContext(), Change_password.class);
+              startActivity(intent);
+          }
+      });
+      phone_number.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent=new Intent(getContext(), change_Phone_no.class);
+              startActivity(intent);
+          }
+      });
          Signout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {

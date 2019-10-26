@@ -213,6 +213,34 @@ public class FirstActivity extends AppCompatActivity {
                 }
 
             }
+            else if (Host.matches("account")) { //to go to the guest profile
+                SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                Integer name = prefs.getInt("First", 1);//"No name defined" is the default value.
+                if (name % 2 != 0) {
+                    setContentView(R.layout.activity_first);
+                    navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
+                    first = 1;
+                    Fragment fragmenth = new Fragment_setting();
+                    fth.replace(R.id.frame, fragmenth);
+                    fth.commit();
+                    navigation.setSelectedItemId(R.id.setting_button);
+                    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+                }
+                else { // to go to the Host profile
+                    setContentView(R.layout.activity_second);
+                    navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
+                    first = 2;
+                    Fragment fragmenth = new Fragment_setting();
+                    fth.replace(R.id.frame, fragmenth);
+                    fth.commit();
+                    navigation.setSelectedItemId(R.id.setting_button);
+
+                    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+                }
+
+            }
             else if (Host.matches("my_post")) {//to go to the guest profile
                     setContentView(R.layout.activity_second);
                     navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
@@ -223,7 +251,9 @@ public class FirstActivity extends AppCompatActivity {
                     navigation.setSelectedItemId(R.id.my_posts);
                     navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-            }  }
+            }
+
+        }
             else {
 
             setContentView(R.layout.activity_first);

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -96,7 +97,8 @@ public class edit_profile extends AppCompatActivity {
 
     }
 
-    private void get_and_set_edittext_values() {
+    private void
+    get_and_set_edittext_values() {
         UsersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -153,6 +155,13 @@ public class edit_profile extends AppCompatActivity {
             loadingBar.show();
             loadingBar.setCanceledOnTouchOutside(true);
 
+
+
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            FirebaseAuthSettings firebaseAuthSettings = firebaseAuth.getFirebaseAuthSettings();
+
+// Configure faking the auto-retrieval with the whitelisted numbers.
+            firebaseAuthSettings.setAutoRetrievedSmsCodeForPhoneNumber(Phone_number, "123456");
             HashMap userMap = new HashMap();
             userMap.put("username", username);
             userMap.put("fullname", fullname);
@@ -166,11 +175,11 @@ public class edit_profile extends AppCompatActivity {
                 public void onComplete(@NonNull Task task) {
                     if (task.isSuccessful()) {
                         SendUserToMainActivity();
-                        Toast.makeText(edit_profile.this, "your Account is created Successfully.", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(edit_profile.this, "your Account is created Successfully.", Toast.LENGTH_LONG).show();
                         loadingBar.dismiss();
                     } else {
                         String message = task.getException().getMessage();
-                        Toast.makeText(edit_profile.this, "Error Occured: " + message, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(edit_profile.this, "Error Occured: " + message, Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                     }
                 }
@@ -216,13 +225,13 @@ public class edit_profile extends AppCompatActivity {
                                 UsersRef.child("Profile").setValue(String.valueOf(uri)).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(edit_profile.this, "Error Resolved ", Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(edit_profile.this, "Error Resolved ", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
                         });
 
-                        Toast.makeText(edit_profile.this, "Error Occured: ", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(edit_profile.this, "Error Occured: ", Toast.LENGTH_SHORT).show();
 
                     }
                 });

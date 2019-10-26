@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tourismof">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirstActivity"/>
+        <activity android:name=".new_password"></activity>
+        <activity android:name=".Forget_Password" />
+        <activity android:name=".change_Phone_no" />
+        <activity android:name=".Change_password" />
+        <activity android:name=".Change_email" />
+        <activity android:name=".FirstActivity" />
         <activity android:name=".Chat" />
-        <activity android:name=".Contacts"></activity>
+        <activity android:name=".Contacts" />
         <activity android:name=".PostActivity" />
         <activity android:name=".Post_title" />
         <activity android:name=".Post_desctiption" />
@@ -24,19 +25,22 @@
         <activity android:name=".ClickPost" />
         <activity android:name=".edit_profile" />
         <activity android:name=".edit_mypost" />
-
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button LoginButton;
     private EditText UserEmail, UserPassword;
-    private TextView createAccount;
+    private TextView createAccount,forget_password;
     private FirebaseAuth mAuth;
     private ProgressDialog loadingBar;
     private String current_user_id;
@@ -51,11 +51,22 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         loadingBar=new ProgressDialog(this);
 
+        forget_password=findViewById(R.id.forget_password);
         createAccount = findViewById(R.id.register_account_link);
         UserEmail = findViewById(R.id.login_email);
         UserPassword = findViewById(R.id.login_password);
         LoginButton = findViewById(R.id.login_button);
 
+
+
+
+        forget_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent=new Intent(LoginActivity.this, Forget_Password.class);
+            startActivity(intent);
+            }
+        });
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
