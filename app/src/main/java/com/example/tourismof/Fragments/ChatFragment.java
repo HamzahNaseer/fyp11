@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.tourismof.Chat;
 import com.example.tourismof.Chat_Contacts;
+import com.example.tourismof.Notifications.Token;
 import com.example.tourismof.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
@@ -49,9 +51,21 @@ public class ChatFragment extends Fragment {
         listOfContacts.setLayoutManager(new LinearLayoutManager(getContext()));
         ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(mAuth.getCurrentUser().getUid());
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
+        updateToken(FirebaseInstanceId.getInstance().getToken());
         return ContactView;
     }
 
+
+    private void updateToken(String token){
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Tokens");
+        Token token1=new Token(token);
+        reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token1);
+
+
+
+    }
     @Override
     public void onStart() {
         super.onStart();

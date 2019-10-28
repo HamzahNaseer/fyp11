@@ -12,7 +12,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50sp"
         android:background="@color/colorNav"
         android:id="@+id/searchView1">
 <TextView
@@ -21,19 +21,19 @@
     android:text="Tourismo"
     android:textColor="#fff"
     android:textSize="25sp"
-    android:padding="12sp"
+    android:padding="10sp"
     android:layout_marginLeft="42sp"/>
 <androidx.appcompat.widget.SearchView
     android:autofillHints="Sea"
     android:id="@+id/searchView"
     android:background="@drawable/search_bar"
    android:layout_marginLeft="12sp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginRight="40dp"
+    android:layout_marginTop="12sp"
+    android:layout_marginBottom="10sp"
+    android:layout_marginRight="40sp"
   android:layout_alignParentRight="true"
     android:layout_width="wrap_content"
-    android:layout_height="40dp" />
+    android:layout_height="40sp" />
     </RelativeLayout>
 
 

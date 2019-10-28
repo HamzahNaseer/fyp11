@@ -10,6 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tourismof.Fragments.APIService;
+import com.example.tourismof.Notifications.Client;
+import com.example.tourismof.Notifications.Data;
+import com.example.tourismof.Notifications.MyResponse;
+import com.example.tourismof.Notifications.Sender;
+import com.example.tourismof.Notifications.Token;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +24,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +38,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Chat extends AppCompatActivity {
 
@@ -45,6 +56,10 @@ public class Chat extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private MessagesAdapter messagesAdapter;
 
+
+    APIService apiService;
+    boolean notify=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +67,7 @@ public class Chat extends AppCompatActivity {
 
         ContactRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
 
-
+  apiService= Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
         chat_profile_sender = findViewById(R.id.sender_image_button);
         send_message_button = findViewById(R.id.send_message_button);
         text_message = findViewById(R.id.chat_text_message);
@@ -69,10 +84,12 @@ public class Chat extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(messagesAdapter);
+
         send_message_button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
+                notify=true;
                 sendMessage();
             }
         });
@@ -182,8 +199,70 @@ public class Chat extends AppCompatActivity {
 
         }
 
+       final  String msg=message;
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Users").child(message_senderID);
+     reference.addValueEventListener(new ValueEventListener() {
+         @Override
+         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+             if(notify) {
+                 sendNotification(message_receiverID, dataSnapshot.child("username").getValue().toString(), msg);
+             }
+             notify=false;
+
+         }
+
+         @Override
+         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+         }
+     });
+    }
+
+    private void sendNotification(String message_receiverID, String username, String msg) {
+
+        DatabaseReference tokens=FirebaseDatabase.getInstance().getReference("Tokens");
+        Query query=tokens.orderByKey().equalTo(message_receiverID);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren())
+                {
+
+                    Token token= snapshot.getValue(Token.class);
+                    Data data=new Data(message_senderID, R.mipmap.ic_launcher, username+": "+msg,"New Message",
+                            message_receiverID);
 
 
+                    Sender sender=new Sender(data,token.getToken());
+                    apiService.sendNotification(sender)
+                            .enqueue(new Callback<MyResponse>() {
+                                @Override
+                                public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
+                                    if(response.code() ==200)
+                                    {
+                                        if(response.body().success !=1)
+                                        {
+                                            Toast.makeText(Chat.this, "Failed", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<MyResponse> call, Throwable t) {
+
+                                }
+                            });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

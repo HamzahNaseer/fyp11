@@ -84,6 +84,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
     }
@@ -124,8 +130,9 @@ public class LoginActivity extends AppCompatActivity {
     private void sendUserToMainActivity() {
         Intent mainIntent = new Intent(LoginActivity.this,FirstActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(mainIntent);
         finish();
+
+        startActivity(mainIntent);
     }
 
     private void SendUserToRegisterActivity() {

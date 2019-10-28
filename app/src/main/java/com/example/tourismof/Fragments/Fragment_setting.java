@@ -84,6 +84,8 @@ TextView Signout,email,password,phone_number;
                  settings.edit().clear().commit();
                  mAuth.getInstance().signOut();
 
+                 getActivity().finish();
+
                  Intent intent=new Intent(getActivity(), LoginActivity.class);
 
                  startActivity(intent);

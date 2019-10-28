@@ -228,6 +228,7 @@
             android:id="@+id/product_page_emi_cod_return_layout"
             android:layout_width="fill_parent"
             android:layout_height="45dp"
+            android:weightSum="600"
             android:layout_below="@id/post_facility_layout"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
@@ -241,13 +242,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="116"
+                android:layout_weight="200"
+                android:weightSum="5"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/sharing"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
                     android:text="Sharing"
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
@@ -255,7 +258,8 @@
 
                 <TextView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
                     android:gravity="bottom"
                     android:text="Available"
                     android:textColor="@android:color/black"
@@ -272,21 +276,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="109"
+                android:layout_weight="180"
+                android:weightSum="5"
                 android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="No of Beds"
+                    android:layout_weight="3"
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="2"
+                    android:layout_weight="2"
                     android:textColor="@android:color/black"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -301,12 +308,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="82"
+                android:layout_weight="220"
+                android:weightSum="5"
                 android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
                     android:text="Bathroom"
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
@@ -314,7 +323,8 @@
 
                 <TextView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
                     android:text="Shared/Separate"
                     android:textColor="@android:color/black"
                     android:textSize="11sp" />
